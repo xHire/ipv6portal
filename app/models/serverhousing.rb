@@ -1,0 +1,2 @@
+class Serverhousing < Provider
+end

@@ -1,0 +1,2 @@
+class Isp < Provider
+end
