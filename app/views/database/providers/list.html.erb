@@ -1,0 +1,12 @@
+<% unless @providers.nil? -%>
+<table width="100%">
+<thead>
+  <th>Společnost</th><th>Stav IPv6</th><th>Autor</th><th>Poslední změna</th>
+</thead>
+<% for provider in @providers do -%>
+<tr><td><%= provider.name %></td><td><%= status_string provider.status %></td><td><%= provider.author %></td><td><%= provider.updated_at %></td></tr>
+<% end -%>
+</table>
+<% else -%>
+<p>Pro daný druh služby neposkytujeme žádná data!</p>
+<% end -%>
