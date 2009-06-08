@@ -6,19 +6,19 @@
     <meta http-equiv="content-language" content="en" />
     <meta name="robots" content="all,follow" />
 
-    <meta name="author" lang="en" content="All: Your name [www.url.com]; e-mail: info@url.com" />
+    <meta name="author" lang="en" content="All: Michal Zima [www.mujmalysvet.cz]; e-mail: mzima@mujmalysvet.cz" />
     <meta name="copyright" lang="en" content="Webdesign: Nuvio [www.nuvio.cz]; e-mail: ahoj@nuvio.cz" />
 
     <meta name="description" content="..." />
     <meta name="keywords" content="..." />
 
-    <link rel="stylesheet" media="screen,projection" type="text/css" href="css/reset.css" />
-    <link rel="stylesheet" media="screen,projection" type="text/css" href="css/main.css" />
-    <!--[if lte IE 6]><link rel="stylesheet" type="text/css" href="css/main-msie.css" /><![endif]-->
-    <link rel="stylesheet" media="screen,projection" type="text/css" href="css/style.css" />
-    <link rel="stylesheet" media="print" type="text/css" href="css/print.css" />
+    <%= stylesheet_link_tag "reset", :media => "screen,projection" %>
+    <%= stylesheet_link_tag "main", :media => "screen,projection" %>
+    <!--[if lte IE 6]><%= stylesheet_link_tag "main-msie" %><![endif]-->
+    <%= stylesheet_link_tag "style", :media => "screen,projection" %>
+    <%= stylesheet_link_tag "print", :media => "print" %>
 
-    <title>Liquid</title>
+    <title>IPv6 Portál.cz</title>
 </head>
 
 <body>
@@ -28,9 +28,9 @@
     <!-- Header -->
     <div id="header">
     
-        <p id="logo"><img src="tmp/logo.gif" alt="" /></p>
+        <h1><%= link_to "IPv6 Portál.cz", root_path %></h1>
         
-        <div id="slogan">Place for your great slogan.</div>
+        <div id="slogan">IPv6 to jistí</div>
     
     </div> <!-- /header -->
     
@@ -40,19 +40,11 @@
     <div id="nav" class="box">
     
         <ul>
-            <li class="active"><a href="#">Homepage</a></li>
-            <li><a href="#">Category</a></li>
-            <li><a href="#">Category</a></li>
-            <li><a href="#">Category</a></li>
-            <li><a href="#">Category</a></li>
-            <li><a href="#">Category</a></li>
+            <li class="active"><%= link_to "Hlavní stránka", root_path %></li>
+            <li><%= link_to "Databáze", "#" %></li>
+            <li><%= link_to "Kontakt", "#" %></li>
         </ul>
         
-        <p id="feeds">
-            <a href="#" class="ico-rss">Articles</a> &nbsp;&nbsp;&nbsp;
-            <a href="#" class="ico-rss">Comments</a>
-        </p> <!-- /feeds -->
-    
     </div> <!-- /nav -->
     
     <hr class="noscreen" />
@@ -64,10 +56,6 @@
             <!-- Content -->
             <div id="content">
 
-                <div class="in">
-                    <p id="breadcrumbs">You are here: <a href="#">Homepage</a> <span>/</span> <a href="#">Category</a> <span>/</span> <strong>Page</strong></p>
-                </div>
-                
                 <h2 class="title-01">Place for your title</h2>
                 
                 <div class="in">
@@ -173,7 +161,7 @@
             <!-- Aside -->
             <div id="aside">
 
-                <h4 class="title-03">Categories</h4>
+                <h4 class="title-03">Kategorie</h4>
                 
                 <div class="in">
                 
@@ -188,7 +176,7 @@
 
                 </div> <!-- /in -->
                 
-                <h4 class="title-04">News</h4>
+                <h4 class="title-04">Novinky</h4>
                 
                 <div class="in">
                 
@@ -203,7 +191,7 @@
                         <dd>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. <a href="#">Proin scelerisque</a> sem veil. Aliquam erat volutpat.</dd>
                     </dl>
                     
-                    <p class="nomb t-right"><a href="#" class="more">Older news</a></p>
+                    <p class="nomb t-right"><%= link_to "Starší novinky", "#", :class => "more" %></p>
                 
                 </div> <!-- /in -->
 
@@ -212,49 +200,17 @@
         </div> <!-- /cols-in -->
     </div> <!-- /cols -->
     
-    <!-- Photogallery -->
-    <div id="gallery">
-    
-        <h4 class="title-03 gallery"><a href="#">Photogallery</a></h4>
-        
-        <div id="gallery-in">
-
-            <p class="t-center nom box">
-                <a href="#"><img src="tmp/95x71.gif" alt="" /></a>
-                <a href="#"><img src="tmp/95x71.gif" alt="" /></a>
-                <a href="#"><img src="tmp/95x71.gif" alt="" /></a>
-                <a href="#"><img src="tmp/95x71.gif" alt="" /></a>
-                <a href="#"><img src="tmp/95x71.gif" alt="" /></a>
-                <a href="#"><img src="tmp/95x71.gif" alt="" /></a>
-                <a href="#"><img src="tmp/95x71.gif" alt="" /></a>
-                <a href="#" class="last"><img src="tmp/95x71.gif" alt="" /></a>
-            </p>
-
-            <div class="separator"></div>
-
-            <div class="box">
-
-                <p class="f-right nom"><a href="#" class="ico-rss">RSS Feed</a></p>
-
-                <p class="f-left nom">Tags: <a href="#">Cars</a>, <a href="#">Football</a>, <a href="#">Baseball</a>, <a href="#">New York</a>, <a href="#">Weddings</a>, <a href="#">Family</a> &hellip;</p>
-                
-            </div> <!-- /box -->
-
-        </div> <!-- /gallery-in -->
-    
-    </div> <!-- /gallery -->
-
     <hr class="noscreen" />
     
     <!-- Footer -->
     <div id="footer" class="box">
     
         <p class="f-right">
-            <a href="#" id="ico-print">Print</a>
-            <a href="#" id="ico-sitemap">Sitemap</a>
+            <%= link_to "Tisk", "#", :id => "ico-print" %>
+            <%= link_to "Mapa webu", "#", :id => "ico-sitemap" %>
         </p>
         
-        <p class="f-left">Copyright &copy; 2008 <a href="#">Your name</a></p>
+        <p class="f-left">Copyright &copy; <%= Time.now.year %> <%= link_to "IPv6 Portál.cz", root_path %></p>
 
     </div> <!-- /box -->
 
