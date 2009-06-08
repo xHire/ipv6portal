@@ -1,0 +1,2 @@
+module Database::BaseHelper
+end
