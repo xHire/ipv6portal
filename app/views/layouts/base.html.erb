@@ -40,8 +40,8 @@
     <div id="nav" class="box">
     
         <ul>
-            <li class="active"><%= link_to "Hlavní stránka", root_path %></li>
-            <li><%= link_to "Databáze", "#" %></li>
+            <li<% if params[:controller] =~ /^base.*/ %> class="active"<% end %>><%= link_to "Hlavní stránka", root_path %></li>
+            <li<% if params[:controller] =~ /^database\/.*/ %> class="active"<% end %>><%= link_to "Databáze", db_path %></li>
             <li><%= link_to "Kontakt", "#" %></li>
         </ul>
         
@@ -56,102 +56,12 @@
             <!-- Content -->
             <div id="content">
 
-                <h2 class="title-01">Place for your title</h2>
+                <h2 class="title-01"><%= @title %></h2>
                 
                 <div class="in">
-                
-                    <!-- Topstory -->
-                    <div class="box">
-                        <div id="topstory-img"><img src="tmp/200x150.gif" alt="" /></div>
-                        <div id="topstory-txt">
-                        
-                            <h3><a href="#">Lorem ipsum dolor sit amet</a></h3>
-                            
-                            <p id="topstory-info">Published: <strong>15. 05. 2008</strong> &nbsp;&nbsp;&nbsp; <a href="#" class="comment">10 comments</a></p>
-                            
-                            <p class="nomb">Lorem ipsum dolor sit amet, consectetuer adipiscing est elit.
-                            Quisque fringilla. Aenean quam. Donec magna arcu, ornareit
-                            amet, gravida eget, elementum ut, sapien. Proin augue velita,
-                            at, vulputate ac, dignissim non, nunc. Pellentesque at lectus.
-                            ante ipsum primis in faucibus orci luctus et ultrices.</p>
-                        
-                        </div> <!-- /topstory-txt -->
-                        
-                    </div> <!-- /box -->
 
-                    <!-- Older articles -->
-                    <h4 class="title-02"><span>Older articles</span></h4>
-                    
-                    <div class="cols5050 box">
+		<%= yield %>
 
-                        <!-- Left column -->
-                        <div class="col">
-
-                            <!-- Article -->
-                            <div class="article box">
-                                <div class="article-img"><img src="tmp/85x63.gif" alt="" /></div>
-                                <div class="article-txt">
-                                    <h4><a href="#">Lorem ipsum sit amet</a></h4>
-                                    <p>Lorem ipsum dolor sit consectetuer adipiscing elit. Suspendisse in lacis.</p>
-                                </div> <!-- /article-txt -->
-                            </div> <!-- /article -->
-
-                            <!-- Article -->
-                            <div class="article box">
-                                <div class="article-img"><img src="tmp/85x63.gif" alt="" /></div>
-                                <div class="article-txt">
-                                    <h4><a href="#">Lorem ipsum sit amet</a></h4>
-                                    <p>Lorem ipsum dolor sit consectetuer adipiscing elit. Suspendisse in lacis.</p>
-                                </div> <!-- /article-txt -->
-                            </div> <!-- /article -->
-
-                            <!-- Article -->
-                            <div class="article box">
-                                <div class="article-img"><img src="tmp/85x63.gif" alt="" /></div>
-                                <div class="article-txt">
-                                    <h4><a href="#">Lorem ipsum sit amet</a></h4>
-                                    <p>Lorem ipsum dolor sit consectetuer adipiscing elit. Suspendisse in lacis.</p>
-                                </div> <!-- /article-txt -->
-                            </div> <!-- /article -->
-
-                        </div> <!-- /col -->
-                        
-                        <!-- Right column -->
-                        <div class="col f-right">
-
-                            <!-- Article -->
-                            <div class="article box">
-                                <div class="article-img"><img src="tmp/85x63.gif" alt="" /></div>
-                                <div class="article-txt">
-                                    <h4><a href="#">Lorem ipsum sit amet</a></h4>
-                                    <p>Lorem ipsum dolor sit consectetuer adipiscing elit. Suspendisse in lacis.</p>
-                                </div> <!-- /article-txt -->
-                            </div> <!-- /article -->
-
-                            <!-- Article -->
-                            <div class="article box">
-                                <div class="article-img"><img src="tmp/85x63.gif" alt="" /></div>
-                                <div class="article-txt">
-                                    <h4><a href="#">Lorem ipsum sit amet</a></h4>
-                                    <p>Lorem ipsum dolor sit consectetuer adipiscing elit. Suspendisse in lacis.</p>
-                                </div> <!-- /article-txt -->
-                            </div> <!-- /article -->
-
-                            <!-- Article -->
-                            <div class="article box">
-                                <div class="article-img"><img src="tmp/85x63.gif" alt="" /></div>
-                                <div class="article-txt">
-                                    <h4><a href="#">Lorem ipsum sit amet</a></h4>
-                                    <p>Lorem ipsum dolor sit consectetuer adipiscing elit. Suspendisse in lacis.</p>
-                                </div> <!-- /article-txt -->
-                            </div> <!-- /article -->
-
-                        </div> <!-- /col -->
-                    
-                    </div> <!-- /cols5050 -->
-
-                    <p class="nomb t-right"><a href="#" class="more">More articles</a></p>
-                
                 </div> <!-- /in -->
                 
             </div> <!-- /content -->

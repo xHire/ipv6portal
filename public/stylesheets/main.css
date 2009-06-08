@@ -78,11 +78,15 @@ h1, h2, h3, h4, h5, h6, p, address, blockquote, table, dl, fieldset {margin:15px
 #breadcrumbs a:hover {text-decoration:none;}
 #breadcrumbs span {margin:0 3px;}
 
-#topstory-img {float:left; width:200px;}
-#topstory-img img {display:block;}
-#topstory-txt {float:right; width:355px;}
+#topstory-img {float:left; width:200px; text-align:center;}
+#topstory-img img {margin-top:1.5em;}
+#topstory-txtimg {float:right; width:355px;}
+#topstory-txt {float:right; width:565px;}
+#topstory-txtimg h3,
 #topstory-txt h3 {margin:0; font-size:140%; font-weight:normal;}
+#topstory-txtimg #topstory-info,
 #topstory-txt #topstory-info {margin:0; font-size:90%;}
+#topstory-txtimg .comment,
 #topstory-txt .comment {padding-left:12px; background:url("/images/ico-comment.gif") 0 2px no-repeat;}
 
 .cols5050 {clear:both; background:url("/images/dot-01.gif") 0 100% repeat-x;}
