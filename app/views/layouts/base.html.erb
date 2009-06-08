@@ -76,12 +76,11 @@
                 <div class="in">
                 
                     <ul id="subnav">
-                        <li><a href="#">Lorem ipsum sit amet</a></li>
-                        <li><a href="#">Lorem ipsum sit amet</a></li>
-                        <li class="active"><a href="#">Lorem ipsum sit amet</a></li>
-                        <li><a href="#">Lorem ipsum sit amet</a></li>
-                        <li><a href="#">Lorem ipsum sit amet</a></li>
-                        <li class="last"><a href="#">Lorem ipsum sit amet</a></li>
+<% if params[:controller] =~ /^database\/.*/ -%>
+<%= list_db_categories %>
+<% else -%>
+<%= list_wiki_categories %>
+<% end -%>
                     </ul>
 
                 </div> <!-- /in -->

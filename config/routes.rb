@@ -6,5 +6,7 @@ ActionController::Routing::Routes.draw do |map|
 
 	map.db 'databaze', :controller => 'database/base'
 
+	map.wiki ':page', :controller => 'base'
+
 	map.root :controller => 'base'
 end
