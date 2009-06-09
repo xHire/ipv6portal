@@ -1,0 +1,17 @@
+<% unless @provider.nil? -%>
+<% form_for @provider, :url => db_provider_create_path(params[:type]), :html => { :method => :post, :id => 'db' } do |f| -%>
+  <%= f.error_messages %>
+  <table>
+    <tr><td><%= f.label :author, "Vaše jméno:" %></td><td><%= f.text_field :author, :maxlength => 30, :tabindex => 1 %></td></tr>
+    <tr><td><%= f.label :email, "Váš e-mail:" %></td><td><%= f.text_field :email, :maxlength => 50, :tabindex => 2 %> (nebude nikde zveřejněn)</td></tr>
+    <tr><td><%= f.label :name, "Název společnosti:" %></td><td><%= f.text_field :name, :maxlength => 35, :tabindex => 3 %></td></tr>
+    <tr><td><%= f.label :url, "Web společnosti:" %></td><td><%= f.text_field :url, :maxlength => 100, :tabindex => 4 %> např. http://www.ipv6portal.cz/</td></tr>
+    <tr><td><%= f.label :status, "Stav IPv6 služeb:" %></td><td><%= f.select :status, [['bez zájmu', 0], ['podporuje', 1], ['v plánu', 2]], :tabindex => 5 %></td></tr>
+  </table> 
+  <p class="nomb">Pokud jste vedli s daným poskytovatelem na téma IPv6 nějakou komunikaci (např. e-mail či IM), můžete ji vložit níže:</p>
+  <%= text_area_tag :content %>
+  <p class="nomb"><%= submit_tag "Přidat záznam", :class => 'submit' %></p>
+<% end -%>
+<% else -%>
+<p>Pro daný druh služby neposkytujeme žádná data!</p>
+<% end -%>

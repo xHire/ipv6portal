@@ -123,6 +123,13 @@ table#db tr.planned {background-color:#fff99f;}
 table#db tr.negative {background-color:#ffb6b6;}
 table#db, table#db td, table#db th {border:1px solid #999999;}
 
+form#db input,
+form#db select {width:248px;}
+form#db textarea {width:99%; height:200px;}
+form#db input.submit {width:auto; padding:0.3em 1em;}
+
+input.submit {padding:0.3em 1em;}
+
 /* ----------------------------------------------------------------------------------------------------------
 5) Others
 ---------------------------------------------------------------------------------------------------------- */
