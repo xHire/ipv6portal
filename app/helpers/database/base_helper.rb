@@ -17,4 +17,30 @@ module Database::BaseHelper
 
 		return output
 	end
+
+	def status_string status
+		case status
+			when 0 || false
+				'bez zájmu'
+			when 1 || true
+				'podporuje'
+			when 2
+				'v plánu'
+			else
+				'???'
+		end
+	end
+
+	def status_class status
+		case status
+			when 0 || false
+				'negative'
+			when 1 || true
+				'positive'
+			when 2
+				'planned'
+			else
+				''
+		end
+	end
 end

@@ -114,6 +114,15 @@ dl#news a:hover {text-decoration:none;}
 #gallery img {margin-right:18px;}
 #gallery a.last img {margin:0;}
 
+table#db {width:100%; border-collapse:collapse;}
+table#db td,
+table#db th {padding:0.3em 0.4em;}
+table#db th {background-color:#e5e5e5;}
+table#db tr.positive {background-color:#bcff9f;}
+table#db tr.planned {background-color:#fff99f;}
+table#db tr.negative {background-color:#ffb6b6;}
+table#db, table#db td, table#db th {border:1px solid #999999;}
+
 /* ----------------------------------------------------------------------------------------------------------
 5) Others
 ---------------------------------------------------------------------------------------------------------- */

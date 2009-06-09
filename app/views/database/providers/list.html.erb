@@ -1,12 +1,16 @@
 <% unless @providers.nil? -%>
-<table width="100%">
+<% unless @providers.empty? -%>
+<table id="db">
 <thead>
   <th>Společnost</th><th>Stav IPv6</th><th>Autor</th><th>Poslední změna</th>
 </thead>
 <% for provider in @providers do -%>
-<tr><td><%= provider.name %></td><td><%= status_string provider.status %></td><td><%= provider.author %></td><td><%= provider.updated_at %></td></tr>
+<tr class="<%= status_class provider.status %>"><td><%= provider.name %></td><td><%= status_string provider.status %></td><td><%= provider.author %></td><td><%= dttm provider.updated_at %></td></tr>
 <% end -%>
 </table>
+<% else -%>
+<p>Zatím tu pro tuto službu nemáme žádné záznamy.</p>
+<% end -%>
 <% else -%>
 <p>Pro daný druh služby neposkytujeme žádná data!</p>
 <% end -%>

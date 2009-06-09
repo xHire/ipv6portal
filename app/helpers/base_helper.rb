@@ -17,4 +17,12 @@ module BaseHelper
 
 		return output
 	end
+
+	def dttm t
+		"#{t.day}. #{t.month}. #{t.year} #{t.hour}:#{t.min}"
+	end
+
+	def dt d
+		"#{d.day}. #{d.month}. #{d.year}"
+	end
 end
