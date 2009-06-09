@@ -2,6 +2,8 @@ set :application, "ipv6portal"
 set :repository,  "xhire@localhost:/srv/git/ipv6portal.git"
 set :scm, :git
 
+set :git_enable_submodules, true
+
 role :web, "sykora.paskuli.cz"
 role :app, "sykora.paskuli.cz"
 role :db,  "sykora.paskuli.cz", :primary => true

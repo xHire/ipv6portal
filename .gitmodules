@@ -1,0 +1,3 @@
+[submodule "vendor/plugins/validates_as_email"]
+	path = vendor/plugins/validates_as_email
+	url = git://github.com/gbdev/validates_as_email.git
