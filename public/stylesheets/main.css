@@ -80,8 +80,8 @@ h1, h2, h3, h4, h5, h6, p, address, blockquote, table, dl, fieldset {margin:15px
 
 #topstory-img {float:left; width:200px; text-align:center;}
 #topstory-img img {margin-top:1.5em;}
-#topstory-txtimg {float:right; width:355px;}
-#topstory-txt {float:right; width:565px;}
+#topstory-txtimg {float:right; width:355px; margin-right:5px;}
+#topstory-txt {float:right; width:565px; margin-right:3px;}
 #topstory-txtimg h3,
 #topstory-txt h3 {margin:0; font-size:140%; font-weight:normal;}
 #topstory-txtimg #topstory-info,
@@ -128,7 +128,15 @@ form#db select {width:248px;}
 form#db textarea {width:99%; height:200px;}
 form#db input.submit {width:auto; padding:0.3em 1em;}
 
+form span.field-with-errors input,
+form span.field-with-errors select {background-color:#ffb6b6;}
+
 input.submit {padding:0.3em 1em;}
+
+.errorExplanation {width:600px; margin:-10px 0 0 -15px; padding-bottom:0.8em;}
+.errorExplanation h2 {padding:0.6em 0; font-size:1.4em; text-align:center; background-color:#ffb6b6;}
+.errorExplanation p {margin-left:1em; font-weight:bold;}
+.errorExplanation ul {margin:-0.8em 1em 0 2em;}
 
 /* ----------------------------------------------------------------------------------------------------------
 5) Others

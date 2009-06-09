@@ -1,0 +1,8 @@
+cs:
+  activerecord:
+    attributes:
+      provider:
+        author: "Vaše jméno"
+        email: "Váš e-mail"
+        name: "Název společnosti"
+        url: "Web společnosti"
