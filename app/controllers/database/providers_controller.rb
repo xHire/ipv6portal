@@ -6,7 +6,7 @@ class Database::ProvidersController < Database::BaseController
 		return if get_title.nil?
 
 		# data for listing
-		@providers = get_obj.all
+		@providers = get_obj.all(:conditions => 'status = 1 or status = 2', :order => 'status, name ASC') + get_obj.all(:conditions => { :status => 0 }, :order => 'name ASC')
 	end
 
 	def new
