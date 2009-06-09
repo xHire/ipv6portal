@@ -31,6 +31,12 @@ class Database::ProvidersController < Database::BaseController
 		end
 	end
 
+	def letter
+		return if get_title.nil?
+
+		render :template => "database/providers/letter-#{params[:type]}"
+	end
+
 	private
 	def select_category
 		@selected_category = params['type']
@@ -53,6 +59,9 @@ class Database::ProvidersController < Database::BaseController
 			when 'new', 'create'
 				raise 'InvalidProvider' if title[:new][params[:type]].nil?
 				@title = "Přidat nový záznam: #{title[:new][params[:type]]}"
+			when 'letter'
+				raise 'InvalidProvider' if title[:new][params[:type]].nil?
+				@title = "Vzorový e-mail pro #{title[:new][params[:type]]}"
 		end
 		rescue
 			@title = 'Chyba'
