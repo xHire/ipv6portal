@@ -6,6 +6,10 @@ class BaseController < ApplicationController
 		@title = "Krátce úvodem"
 	end
 
+	def contact
+		@title = "Kontakt"
+	end
+
 	private
 	def category_list
 		@categories = [ { :id => '', :title => 'Hlavní stránka' }

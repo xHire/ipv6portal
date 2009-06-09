@@ -40,9 +40,9 @@
     <div id="nav" class="box">
     
         <ul>
-            <li<% if params[:controller] =~ /^base.*/ %> class="active"<% end %>><%= link_to "Hlavní stránka", root_path %></li>
+            <li<% if params[:controller] == 'base' && params[:action] == 'index' %> class="active"<% end %>><%= link_to "Hlavní stránka", root_path %></li>
             <li<% if params[:controller] =~ /^database\/.*/ %> class="active"<% end %>><%= link_to "Databáze", db_path %></li>
-            <li><%= link_to "Kontakt", "#" %></li>
+            <li<% if params[:controller] == 'base' && params[:action] == 'contact' %> class="active"<% end %>><%= link_to "Kontakt", contact_path %></li>
         </ul>
         
     </div> <!-- /nav -->
@@ -90,17 +90,9 @@
                 <div class="in">
                 
                     <dl id="news" class="box">
-                        <dt>15. 05. 2008</dt>
-                        <dd>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. <a href="#">Proin scelerisque</a> sem veil. Aliquam erat volutpat.</dd>
-                        
-                        <dt>15. 05. 2008</dt>
-                        <dd>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. <a href="#">Proin scelerisque</a> sem veil. Aliquam erat volutpat.</dd>
-                        
-                        <dt>15. 05. 2008</dt>
-                        <dd>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. <a href="#">Proin scelerisque</a> sem veil. Aliquam erat volutpat.</dd>
+                        <dt>9. 6. 2009</dt>
+                        <dd>Oficiální spuštětní IPv6 Portálu</dd>
                     </dl>
-                    
-                    <p class="nomb t-right"><%= link_to "Starší novinky", "#", :class => "more" %></p>
                 
                 </div> <!-- /in -->
 
@@ -114,11 +106,6 @@
     <!-- Footer -->
     <div id="footer" class="box">
     
-        <p class="f-right">
-            <%= link_to "Tisk", "#", :id => "ico-print" %>
-            <%= link_to "Mapa webu", "#", :id => "ico-sitemap" %>
-        </p>
-        
         <p class="f-left">Copyright &copy; <%= Time.now.year %> <%= link_to "IPv6 Portál.cz", root_path %></p>
 
     </div> <!-- /box -->
