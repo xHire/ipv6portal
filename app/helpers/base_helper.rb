@@ -19,7 +19,7 @@ module BaseHelper
 	end
 
 	def dttm t
-		"#{t.day}. #{t.month}. #{t.year} #{t.hour}:#{t.min}"
+		"#{t.day}. #{t.month}. #{t.year} #{t.strftime('%H:%M')}"
 	end
 
 	def dt d
