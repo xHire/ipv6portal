@@ -1,5 +1,5 @@
 set :application, "ipv6portal"
-set :repository,  "xhire@localhost:/srv/git/ipv6portal.git"
+set :repository,  "ssh://xhire@sykora.paskuli.cz/srv/git/ipv6portal.git"
 set :scm, :git
 
 set :git_enable_submodules, true
