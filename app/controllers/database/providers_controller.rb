@@ -23,7 +23,7 @@ class Database::ProvidersController < Database::BaseController
 
 		@provider = get_obj.create data
 		if @provider.save
-			@provider.texts.create [ :author => data[:author], :email => data[:email], :ip => data[:ip], :created_at => data[:created_at], :content => params[:content] ]
+			@provider.texts.create [ :author => data[:author], :email => data[:email], :ip => data[:ip], :created_at => data[:created_at], :content => params[:content] ] unless params[:content].nil? || params[:content].empty?
 			redirect_to db_providers_path(params[:type])
 		else
 			get_title
