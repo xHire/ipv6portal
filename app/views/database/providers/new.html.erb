@@ -12,10 +12,15 @@
 	    <tr><td><%= f.label :url, "Web společnosti:" %></td><td><%= f.text_field :url, :maxlength => 100, :tabindex => 4 %> např. http://www.ipv6portal.cz/</td></tr>
 	    <tr><td><%= f.label :status, "Stav IPv6 služeb:" %></td><td><%= f.select :status, [['bez zájmu', 0], ['podporuje', 1], ['v plánu', 2]], :tabindex => 5 %></td></tr>
 	  </table> 
-	  <p class="nomb">Pokud jste vedli s daným poskytovatelem na téma IPv6 nějakou komunikaci (např. e-mail či IM), můžete ji vložit níže:</p>
+	  <p class="nomb botspace">Pokud jste vedli s daným poskytovatelem na téma IPv6 nějakou komunikaci (např. e-mail či IM), můžete ji vložit níže (vkládáte-li záznam poprvé, <%= link_to '<strong>přečtěte si instrukce!</strong>', '#instrukce' %>):</p>
 	  <%= text_area_tag :content %>
 	  <p class="submit"><%= submit_tag "Přidat záznam", :class => 'submit' %></p>
 	<% end -%>
+
+	<a name="instrukce"></a>
+	<h4 class="title-02"><span>Instrukce pro vkládání dodatečného textu</span></h4>
+	<p class="nomb justify">Abychom udrželi záznamy dostatečně kvalitní, je potřeba, abyste se řídili následujícími instrukcemi. Do pole pro text vkládáte <em>pouze</em> text&#160;&#8211; pokud e-maily obsahují citační značky, hlavičky apod., tak je potřeba je odstranit. Jednotlivé zprávy z&#160;komunikace vkládejte postupně pod sebe, oddělujte třemi pomlčkami ('---') z obou stran doplněným přázdným řádkem. Jako první vkládejte zprávu nejstarší a jako poslední naopak zprávu nejnovější. Můžete vložit i text zprávy, ve které se ptáte.</p>
+	<p class="nomb justify">Pokud je podpora IPv6 deklarována na webu poskytovatele, nemusíte žádný text vkládat. Pokud máte s&#160;poskytovatelem osobní zkušenost, můžete se podělit o&#160;způsob jeho implementace IPv6 či o&#160;rady, jak si u&#160;něj IPv6 nastavit.</p>
 
 	<% else -%>
 	<p>Pro daný druh služby neposkytujeme žádná data!</p>
