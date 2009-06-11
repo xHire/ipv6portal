@@ -25,4 +25,24 @@ module BaseHelper
 	def dt d
 		"#{d.day}. #{d.month}. #{d.year}"
 	end
+
+	def statistics
+		if RAILS_ENV == 'production'
+			return <<EOF
+<!-- Piwik -->
+<script type="text/javascript">
+var pkBaseURL = (("https:" == document.location.protocol) ? "https://stats.ipv6portal.cz/" : "http://stats.ipv6portal.cz/");
+document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+try {
+	var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 1);
+	piwikTracker.trackPageView();
+	piwikTracker.enableLinkTracking();
+} catch( err ) {}
+</script>
+<!-- End Piwik Tag -->
+
+EOF
+		end
+	end
 end
