@@ -1,18 +1,26 @@
-<% unless @providers.nil? -%>
-<% unless @providers.empty? -%>
-<table id="db">
-<thead>
-  <th>Společnost</th><th>Stav IPv6</th><th>Autor</th><th>Poslední změna</th>
-</thead>
-<% for provider in @providers do -%>
-<tr class="<%= status_class provider.status %>"><td><%= provider.name %></td><td><%= status_string provider.status %></td><td><%= provider.author %></td><td><%= dttm provider.updated_at %></td></tr>
-<% end -%>
-</table>
-<% else -%>
-<p>Zatím tu pro tuto službu nemáme žádné záznamy.</p>
-<% end -%>
-<p class="nomb"><%= link_to "Přidat nový záznam", db_provider_new_path %></p>
-<p class="nomb justify">Potřebujete poradit, jak správně oslovit vašeho poskytovatele, abyste zvýšili svou šanci na kladnou odpověď? Zkuste námi připravený vzorový <%= link_to 'e-mail', db_providers_letter_path %>! Nezapomeňte se o nové poznatky o přístupu vašeho poskytovatele k IPv6 s námi podělit přidáním záznamu. Děkujeme!</p>
-<% else -%>
-<p>Pro daný druh služby neposkytujeme žádná data!</p>
-<% end -%>
+<!-- Box -->
+<div class="box">
+    <div id="topstory-txt">
+
+        <% unless @providers.nil? -%>
+        <% unless @providers.empty? -%>
+        <table id="db">
+        <thead>
+          <th>Společnost</th><th>Stav IPv6</th><th>Autor</th><th>Poslední změna</th>
+        </thead>
+        <% for provider in @providers do -%>
+        <tr class="<%= status_class provider.status %>"><td><%= link_to provider.name, db_provider_show_path(params[:type], provider.id) %></td><td><%= status_string provider.status %></td><td><%= provider.author %></td><td><%= dttm provider.updated_at %></td></tr>
+        <% end -%>
+        </table>
+        <% else -%>
+        <p>Zatím tu pro tuto službu nemáme žádné záznamy.</p>
+        <% end -%>
+        <p class="nomb"><%= link_to "Přidat nový záznam", db_provider_new_path %></p>
+        <p class="nomb justify">Potřebujete poradit, jak správně oslovit vašeho poskytovatele, abyste zvýšili svou šanci na kladnou odpověď? Zkuste námi připravený vzorový <%= link_to 'e-mail', db_providers_letter_path %>! Nezapomeňte se o nové poznatky o přístupu vašeho poskytovatele k IPv6 s námi podělit přidáním záznamu. Děkujeme!</p>
+        <% else -%>
+        <p>Pro daný druh služby neposkytujeme žádná data!</p>
+        <% end -%>
+
+    </div> <!-- /topstory-txt -->
+
+</div> <!-- /box -->

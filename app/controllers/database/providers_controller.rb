@@ -37,6 +37,18 @@ class Database::ProvidersController < Database::BaseController
 		render :template => "database/providers/letter-#{params[:type]}"
 	end
 
+	def show
+		get_title
+
+		@provider = get_obj.find params[:id]
+
+		unless @provider.nil?
+			@title += ' ' + @provider.name
+		else
+			@title = 'Chyba'
+		end
+	end
+
 	private
 	def select_category
 		@selected_category = params['type']
@@ -48,8 +60,9 @@ class Database::ProvidersController < Database::BaseController
 
 	def get_title
 		title = {}
-		title[:list] = { 'isp' => 'ISP', 'serverhousing' => 'serverhousingů', 'webhosting' => 'webhostingů' }
-		title[:new]  = { 'isp' => 'ISP', 'serverhousing' => 'serverhousing', 'webhosting' => 'webhosting' }
+		title[:list]  = { 'isp' => 'ISP', 'serverhousing' => 'serverhousingů', 'webhosting' => 'webhostingů' }
+		title[:new]   = { 'isp' => 'ISP', 'serverhousing' => 'serverhousing', 'webhosting' => 'webhosting' }
+		title[:show]  = { 'isp' => 'ISP', 'serverhousing' => 'Serverhousing', 'webhosting' => 'Webhosting' }
 
 		begin
 		case params[:action]
@@ -62,6 +75,9 @@ class Database::ProvidersController < Database::BaseController
 			when 'letter'
 				raise 'InvalidProvider' if title[:new][params[:type]].nil?
 				@title = "Vzorový e-mail pro #{title[:new][params[:type]]}"
+			when 'show'
+				raise 'InvalidProvider' if title[:show][params[:type]].nil?
+				@title = title[:show][params[:type]]
 		end
 		rescue
 			@title = 'Chyba'

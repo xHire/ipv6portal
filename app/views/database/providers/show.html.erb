@@ -1,0 +1,28 @@
+<!-- Box -->
+<div class="box">
+    <div id="topstory-txt">
+
+        <% unless @provider.nil? -%>
+        <table id="db">
+          <tr><th class="detail">Web společnosti:</th><td><%= @provider.url %></td></tr>
+          <tr class="<%= status_class @provider.status %>"><th class="detail">Stav služeb:</th><td><%= status_string @provider.status %></td></tr>
+          <tr><th class="detail">Záznam přidal:</th><td><%= @provider.author %></td></tr>
+          <tr><th class="detail">Dne:</th><td><%= dttm @provider.created_at %></td></tr>
+          <tr><th class="detail">Poslední změna:</th><td><%= dttm @provider.updated_at %></td></tr>
+        </table>
+
+	<% unless @provider.texts.empty? -%>
+	<% for text in @provider.texts -%>
+	<div class="provider-exp">
+	  <p class="nomb about"><strong>Vytvořil <em><%= text.author %></em> dne <%= dttm text.created_at %></strong></p>
+	  <p class="nomb"><%= text.content.gsub(/\r/, '').gsub(/\n\n/, '</p><p class="nomb">').gsub(/\n/, '<br />') %></p>
+	</div>
+	<% end -%>
+	<% end -%>
+        <% else -%>
+        <p class="nomb">Požadovaný poskytovatel neexistuje!</p>
+        <% end -%>
+
+    </div> <!-- /topstory-txt -->
+
+</div> <!-- /box -->
