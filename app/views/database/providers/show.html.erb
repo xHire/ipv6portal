@@ -15,7 +15,7 @@
 	<% for text in @provider.texts -%>
 	<div class="provider-exp">
 	  <p class="nomb about"><strong>Vytvořil <em><%= text.author %></em> dne <%= dttm text.created_at %></strong></p>
-	  <p class="nomb"><%= text.content.gsub(/\r/, '').gsub(/\n\n/, '</p><p class="nomb">').gsub(/\n/, '<br />') %></p>
+	  <p class="nomb"><%= text.content.gsub(/\r/, '').gsub(/\n\n---\n\n/, '</p><hr /><p class="nomb">').gsub(/\n\n/, '</p><p class="nomb">').gsub(/\n/, '<br />') %></p>
 	</div>
 	<% end -%>
 	<% end -%>
