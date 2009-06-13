@@ -7,7 +7,7 @@
           <tr><th class="detail">Web společnosti:</th><td><%= @provider.url %></td></tr>
           <tr class="<%= status_class @provider.status %>"><th class="detail">Stav služeb:</th><td><%= status_string @provider.status %></td></tr>
           <tr><th class="detail">Záznam přidal:</th><td><%= @provider.author %></td></tr>
-          <tr><th class="detail">Dne:</th><td><%= dttm @provider.created_at %></td></tr>
+          <tr><th class="detail">Vytvořeno:</th><td><%= dttm @provider.created_at %></td></tr>
           <tr><th class="detail">Poslední změna:</th><td><%= dttm @provider.updated_at %></td></tr>
         </table>
 
