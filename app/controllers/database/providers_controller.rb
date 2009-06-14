@@ -40,7 +40,7 @@ class Database::ProvidersController < Database::BaseController
 	def show
 		get_title
 
-		@provider = get_obj.find params[:id]
+		@provider = get_obj.find :conditions => { :seoname => params[:id] }
 
 		unless @provider.nil?
 			@title += ' ' + @provider.name

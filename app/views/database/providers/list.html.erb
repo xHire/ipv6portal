@@ -9,7 +9,7 @@
           <th>Společnost</th><th>Stav IPv6</th><th>Autor</th><th>Poslední změna</th>
         </thead>
         <% for provider in @providers do -%>
-        <tr class="<%= status_class provider.status %>"><td><%= link_to provider.name, db_provider_show_path(params[:type], provider.id) %></td><td><%= status_string provider.status %></td><td><%= provider.author %></td><td><%= dttm provider.updated_at %></td></tr>
+        <tr class="<%= status_class provider.status %>"><td><%= link_to provider.name, db_provider_show_path(params[:type], provider.name.seolize) %></td><td><%= status_string provider.status %></td><td><%= provider.author %></td><td><%= dttm provider.updated_at %></td></tr>
         <% end -%>
         </table>
         <% else -%>
