@@ -1,4 +1,6 @@
-require File.join(RAILS_ROOT, 'app', 'models', 'provider')
+for model in [ 'provider', 'provider_text', 'isp', 'serverhousing', 'webhosting' ] do
+	require File.join(RAILS_ROOT, 'app', 'models', model)
+end
 
 class AddProvidersSeoname < ActiveRecord::Migration
 	def self.up
