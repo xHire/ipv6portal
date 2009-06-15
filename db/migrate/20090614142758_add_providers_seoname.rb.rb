@@ -1,3 +1,5 @@
+require File.join(RAILS_ROOT, 'app', 'models', 'provider')
+
 class AddProvidersSeoname < ActiveRecord::Migration
 	def self.up
 		add_column :providers, :seoname, :string, :limit => 35, :null => false, :after => :name
