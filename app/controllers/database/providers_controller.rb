@@ -20,6 +20,7 @@ class Database::ProvidersController < Database::BaseController
 		data[:created_at] = Time.now
 		data[:updated_at] = Time.now
 		data[:ip] = request.env['REMOTE_ADDR']
+		data[:seoname] = data[:name].seolize
 
 		@provider = get_obj.create data
 		if @provider.save
@@ -40,7 +41,7 @@ class Database::ProvidersController < Database::BaseController
 	def show
 		get_title
 
-		@provider = get_obj.find :conditions => { :seoname => params[:id] }
+		@provider = get_obj.first :conditions => { :seoname => params[:id] }
 
 		unless @provider.nil?
 			@title += ' ' + @provider.name
@@ -51,11 +52,11 @@ class Database::ProvidersController < Database::BaseController
 
 	private
 	def select_category
-		@selected_category = params['type']
+		@selected_category = params[:type]
 	end
 
 	def get_obj
-		Object.module_eval("::#{params['type'].camelize}", __FILE__, __LINE__)
+		Object.module_eval("::#{params[:type].camelize}", __FILE__, __LINE__)
 	end
 
 	def get_title
