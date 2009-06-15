@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090608115552) do
+ActiveRecord::Schema.define(:version => 20090614143344) do
 
   create_table "provider_texts", :force => true do |t|
     t.string   "author",      :limit => 30, :null => false
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(:version => 20090608115552) do
     t.datetime "created_at",                :null => false
     t.integer  "provider_id",               :null => false
     t.text     "content",                   :null => false
+    t.integer  "status"
   end
 
   create_table "providers", :force => true do |t|
@@ -28,6 +29,7 @@ ActiveRecord::Schema.define(:version => 20090608115552) do
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false
     t.string   "name",       :limit => 35,  :null => false
+    t.string   "seoname",    :limit => 35,  :null => false
     t.string   "url",        :limit => 100, :null => false
     t.integer  "status",                    :null => false
   end
