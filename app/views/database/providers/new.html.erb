@@ -13,7 +13,7 @@
 	    <tr><td><%= f.label :status, "Stav IPv6 služeb:" %></td><td><%= f.select :status, [['bez zájmu', 0], ['podporuje', 1], ['v plánu', 2]], :tabindex => 5 %></td></tr>
 	  </table> 
 	  <p class="nomb botspace">Pokud jste vedli s daným poskytovatelem na téma IPv6 nějakou komunikaci (např. e-mail či IM), můžete ji vložit níže (vkládáte-li záznam poprvé, <%= link_to '<strong>přečtěte si instrukce!</strong>', '#instrukce' %>):</p>
-	  <%= text_area_tag :content %>
+	  <%= text_area_tag :content, params[:content] %>
 	  <p class="submit"><%= submit_tag "Přidat záznam", :class => 'submit' %></p>
 	<% end -%>
 
