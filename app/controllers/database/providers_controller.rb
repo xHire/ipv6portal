@@ -1,5 +1,6 @@
 # coding: utf-8
 class Database::ProvidersController < Database::BaseController
+	before_filter :translate_type
 	before_filter :select_category
 
 	def list
@@ -16,7 +17,7 @@ class Database::ProvidersController < Database::BaseController
 	end
 
 	def create
-		data = params[params[:type]]
+		data = params[@type.gsub('-', '_')]
 		data[:created_at] = Time.now
 		data[:updated_at] = Time.now
 		data[:ip] = request.env['REMOTE_ADDR']
@@ -35,7 +36,7 @@ class Database::ProvidersController < Database::BaseController
 	def letter
 		return if get_title.nil?
 
-		render :template => "database/providers/letter-#{params[:type]}"
+		render :template => "database/providers/letter-#{@type}"
 	end
 
 	def show
@@ -52,39 +53,49 @@ class Database::ProvidersController < Database::BaseController
 
 	private
 	def select_category
-		@selected_category = params[:type]
+		@selected_category = @type
 	end
 
 	def get_obj
-		Object.module_eval("::#{params[:type].camelize}", __FILE__, __LINE__)
+		Object.module_eval("::#{@type.gsub('-', '_').camelize}", __FILE__, __LINE__)
 	end
 
 	def get_title
 		title = {}
-		title[:list]  = { 'isp' => 'ISP', 'serverhousing' => 'serverhousingů', 'webhosting' => 'webhostingů' }
-		title[:new]   = { 'isp' => 'ISP', 'serverhousing' => 'serverhousing', 'webhosting' => 'webhosting' }
-		title[:show]  = { 'isp' => 'ISP', 'serverhousing' => 'Serverhousing', 'webhosting' => 'Webhosting' }
+		title[:list]  = { 'isp' => 'ISP', 'isp-wholesale' => 'velkoobchodních ISP', 'serverhousing' => 'serverhousingů', 'webhosting' => 'webhostingů' }
+		title[:new]   = { 'isp' => 'ISP', 'isp-wholesale' => 'velkoobchodní ISP', 'serverhousing' => 'serverhousing', 'webhosting' => 'webhosting' }
+		title[:letter]  = { 'isp' => 'ISP', 'isp-wholesale' => 'velkoobchodního ISP', 'serverhousing' => 'serverhousing', 'webhosting' => 'webhosting' }
+		title[:show]  = { 'isp' => 'ISP', 'isp-wholesale' => 'Velkoobchodní ISP', 'serverhousing' => 'Serverhousing', 'webhosting' => 'Webhosting' }
 
 		begin
 		case params[:action]
 			when 'list'
-				raise 'InvalidProvider' if title[:list][params[:type]].nil?
-				@title = "Databáze #{title[:list][params[:type]]}"
+				raise 'InvalidProvider' if title[:list][@type].nil?
+				@title = "Databáze #{title[:list][@type]}"
 			when 'new', 'create'
-				raise 'InvalidProvider' if title[:new][params[:type]].nil?
-				@title = "Přidat nový záznam: #{title[:new][params[:type]]}"
+				raise 'InvalidProvider' if title[:new][@type].nil?
+				@title = "Přidat nový záznam: #{title[:new][@type]}"
 			when 'letter'
-				raise 'InvalidProvider' if title[:new][params[:type]].nil?
-				@title = "Vzorový e-mail pro #{title[:new][params[:type]]}"
+				raise 'InvalidProvider' if title[:letter][@type].nil?
+				@title = "Vzorový e-mail pro #{title[:letter][@type]}"
 			when 'show'
-				raise 'InvalidProvider' if title[:show][params[:type]].nil?
-				@title = title[:show][params[:type]]
+				raise 'InvalidProvider' if title[:show][@type].nil?
+				@title = title[:show][@type]
 		end
 		rescue
 			@title = 'Chyba'
 			@provider = nil
 			@providers = nil
 			return nil
+		end
+	end
+
+	def translate_type
+		case params[:type]
+			when 'isp-velkoobchod'
+				@type = 'isp-wholesale'
+			else
+				@type = params[:type]
 		end
 	end
 end
