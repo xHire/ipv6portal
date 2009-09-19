@@ -29,6 +29,13 @@ module BaseHelper
 	def statistics
 		if RAILS_ENV == 'production'
 			return <<EOF
+<!-- Customized Google Analytics tracking code by H1.cz - ver. 4.02 -->
+<script type="text/javascript" src="/javascripts/ga-set.js"></script>
+<script type="text/javascript"><!--
+var pageTracker = _ga._getTracker('UA-10242946-5', '.www.ipv6portal.cz');
+pageTracker._trackPageview();
+//--></script>
+
 <!-- Piwik -->
 <script type="text/javascript">
 var pkBaseURL = (("https:" == document.location.protocol) ? "https://stats.ipv6portal.cz/" : "http://stats.ipv6portal.cz/");
