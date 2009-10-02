@@ -1,18 +1,18 @@
-# coding: utf-8
+# encoding: utf-8
 class BaseController < ApplicationController
-	before_filter :category_list
+  before_filter :category_list
 
-	def index
-		@title = "Krátce úvodem"
-	end
+  def index
+    @title = "Krátce úvodem"
+  end
 
-	def contact
-		@title = "Kontakt"
-	end
+  def contact
+    @title = "Kontakt"
+  end
 
-	private
-	def category_list
-		@categories = [ { :id => '', :title => 'Hlavní stránka' }
-									]
-	end
+  private
+  def category_list
+    @categories = [ { :id => '', :title => 'Hlavní stránka' }
+                  ]
+  end
 end

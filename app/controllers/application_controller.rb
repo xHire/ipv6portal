@@ -8,12 +8,12 @@ class ApplicationController < ActionController::Base
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
 
-	before_filter :www_address
+  before_filter :www_address
 
-	private
-	def www_address
-		if RAILS_ENV == 'production' && request.env['SERVER_NAME'] == 'ipv6portal.cz'
-			redirect_to 'http://www.ipv6portal.cz' + request.env['PATH_INFO'], :status => :moved_permanently
-		end
-	end
+  private
+  def www_address
+    if RAILS_ENV == 'production' && request.env['SERVER_NAME'] == 'ipv6portal.cz'
+      redirect_to 'http://www.ipv6portal.cz' + request.env['PATH_INFO'], :status => :moved_permanently
+    end
+  end
 end
