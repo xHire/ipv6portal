@@ -17,6 +17,9 @@ class Database::ProvidersController < Database::BaseController
   end
 
   def create
+    redirect_to db_providers_path(params[:type])
+    return
+
     data = params[@type.gsub('-', '_')]
     data[:created_at] = Time.now
     data[:updated_at] = Time.now

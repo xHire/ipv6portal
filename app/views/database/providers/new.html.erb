@@ -1,7 +1,7 @@
 <!-- Box -->
 <div class="box">
     <div id="topstory-txt">
-
+        <p><strong>POZOR! Přidávání nových záznamů je dočasně vypnuto kvůli nové invazi SPAMu. Tuto funkci opět zprovozníme po dokončení našeho antispamového řešení. Děkujeme za pochopení.</strong></p>
 	<% unless @provider.nil? -%>
 	<% form_for @provider, :url => db_provider_create_path(params[:type]), :html => { :method => :post, :id => 'db' } do |f| -%>
 	  <%= f.error_messages %>
