@@ -4,7 +4,7 @@ end
 
 class AddProvidersSeoname < ActiveRecord::Migration
   def self.up
-    add_column :providers, :seoname, :string, :limit => 35, :null => false, :after => :name
+    add_column :providers, :seoname, :string, :limit => 35, :null => false
 
     providers = Provider.all
     for provider in providers do
