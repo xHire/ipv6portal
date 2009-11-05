@@ -9,7 +9,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090614143344) do
+ActiveRecord::Schema.define(:version => 20090616060443) do
+
+  create_table "pages", :force => true do |t|
+    t.boolean  "locked"
+    t.string   "title"
+    t.string   "uri"
+    t.string   "author"
+    t.string   "email"
+    t.text     "content"
+    t.string   "comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "provider_texts", :force => true do |t|
     t.string   "author",      :limit => 30, :null => false
