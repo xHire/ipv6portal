@@ -1,3 +1,9 @@
 [submodule "vendor/plugins/validates_as_email"]
 	path = vendor/plugins/validates_as_email
 	url = git://github.com/gbdev/validates_as_email.git
+[submodule "vendor/plugins/rmathguard"]
+	path = vendor/plugins/rmathguard
+	url = git://github.com/salax/rmathguard.git
+[submodule "vendor/plugins/rmathguard-rails"]
+	path = vendor/plugins/rmathguard-rails
+	url = git://github.com/salax/rmathguard-rails.git
