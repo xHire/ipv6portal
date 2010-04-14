@@ -1,5 +1,7 @@
 # encoding: utf-8
 class Database::ProvidersController < Database::BaseController
+  include RMathGuard::Validation
+
   before_filter :translate_type
   before_filter :select_category
 
@@ -17,22 +19,25 @@ class Database::ProvidersController < Database::BaseController
   end
 
   def create
-    redirect_to db_providers_path(params[:type])
-    return
-
     data = params[@type.gsub('-', '_')]
     data[:created_at] = Time.now
     data[:updated_at] = Time.now
     data[:ip] = request.env['REMOTE_ADDR']
     data[:seoname] = data[:name].seolize
 
-    @provider = get_obj.create data
-    if @provider.save
-      @provider.texts.create [ :author => data[:author], :email => data[:email], :ip => data[:ip], :created_at => data[:created_at], :content => params[:content] ] unless params[:content].nil? || params[:content].empty?
-      redirect_to db_providers_path(params[:type])
-    else
+    @provider = get_obj.new data
+    unless guard_valid?
+      @provider.errors.add_to_base :antispam
       get_title
       render :action => 'new'
+    else
+      if @provider.save
+        @provider.texts.create [ :author => data[:author], :email => data[:email], :ip => data[:ip], :created_at => data[:created_at], :content => params[:content] ] unless params[:content].nil? || params[:content].empty?
+        redirect_to db_providers_path(params[:type])
+      else
+        get_title
+        render :action => 'new'
+      end
     end
   end
 

@@ -6,3 +6,6 @@ cs:
         email: "Váš e-mail"
         name: "Název společnosti"
         url: "Web společnosti"
+    errors:
+      messages:
+        antispam: "Chybně vyplněný kontrolní výpočet"

@@ -126,11 +126,14 @@ table#db th.detail {width:10em; text-align:left;}
 
 form#db input,
 form#db select {width:248px;}
-form#db textarea {width:99%; height:200px;}
+form#db textarea {width:99%; height:200px; margin-bottom: 1em;}
 form#db input.submit {width:auto; padding:0.3em 1em;}
 
 form span.field-with-errors input,
 form span.field-with-errors select {background-color:#ffb6b6;}
+
+form div.rmathguard table {margin-top:0.5em; margin-bottom:0.5em;}
+form div.rmathguard table tr td pre {font-weight:bold; font-size:8px; line-height:8px; margin-right:1em;}
 
 input.submit {padding:0.3em 1em;}
 p.submit {padding:1em 0; clear:left;}

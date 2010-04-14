@@ -1,7 +1,6 @@
 <!-- Box -->
 <div class="box">
     <div id="topstory-txt">
-        <p><strong>POZOR! Přidávání nových záznamů je dočasně vypnuto kvůli nové invazi SPAMu. Tuto funkci opět zprovozníme po dokončení našeho antispamového řešení. Děkujeme za pochopení.</strong></p>
 	<% unless @provider.nil? -%>
 	<% form_for @provider, :url => db_provider_create_path(params[:type]), :html => { :method => :post, :id => 'db' } do |f| -%>
 	  <%= f.error_messages %>
@@ -14,6 +13,7 @@
 	  </table> 
 	  <p class="nomb botspace">Pokud jste vedli s daným poskytovatelem na téma IPv6 nějakou komunikaci (např. e-mail či IM), můžete ji vložit níže (vkládáte-li záznam poprvé, <%= link_to '<strong>přečtěte si instrukce!</strong>', '#instrukce' %>):</p>
 	  <%= text_area_tag :content, params[:content] %>
+          <div class="rmathguard"><%= label_tag :rmathguard, 'Před odesláním formuláře prosím spočtěte následující jednoduchý příklad:' %><br /><%= rmathguard :column_count => 5, :sep_size => 3 %>(Jedná se o ochranu před SPAMovacími roboty. Děkujeme za pochopení.)</div>
 	  <p class="submit"><%= submit_tag "Přidat záznam", :class => 'submit' %></p>
 	<% end -%>
 
